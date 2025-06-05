@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import logo from '../imagenes/logo.png'; // 👈 Importa la imagen
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -62,10 +63,13 @@ const Login = () => {
         }}
       >
         <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <Typography variant="h3" sx={{ color: '#ffffff', fontWeight: 'bold' }}>
-            🏠 Clubhouse
-          </Typography>
-          <Typography variant="body1" sx={{ color: '#a0a0a0', mt: 1 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 1 }}>
+            <img src={logo} alt="Clubhouse logo" style={{ height: 50, marginRight: 8 }} />
+            <Typography variant="h3" sx={{ color: '#ffffff', fontWeight: 'bold' }}>
+              Club Atletico Unión
+            </Typography>
+          </Box>
+          <Typography variant="body1" sx={{ color: '#a0a0a0' }}>
             Inicia sesión en tu cuenta
           </Typography>
         </Box>

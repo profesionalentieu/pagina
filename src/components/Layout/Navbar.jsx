@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Avatar, Box, Container } from '@mui/material';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../imagenes/logo.png'; // Importa la imagen
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -28,21 +29,32 @@ const Navbar = () => {
         borderBottom: '1px solid #2d4a2d'
       }}
     >
-      {/* Cambié maxWidth de md a lg para que Navbar sea igual de ancho que Dashboard */}
       <Container maxWidth="lg">
         <Toolbar sx={{ justifyContent: 'space-between', px: 0 }}>
-          <Typography 
-            variant="h6" 
-            component="div" 
+          <Box 
             sx={{ 
-              fontWeight: 'bold',
-              color: '#ffffff',
-              cursor: 'pointer'
+              display: 'flex', 
+              alignItems: 'center', 
+              cursor: 'pointer' 
             }}
             onClick={() => navigate('/dashboard')}
           >
-            🏠 Clubhouse
-          </Typography>
+            <img 
+              src={logo} 
+              alt="Logo" 
+              style={{ height: 40, marginRight: 8 }} 
+            />
+            <Typography 
+              variant="h6" 
+              component="div" 
+              sx={{ 
+                fontWeight: 'bold',
+                color: '#ffffff'
+              }}
+            >
+              Club Atletico Unión
+            </Typography>
+          </Box>
           
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
             {menuItems.map((item) => (
