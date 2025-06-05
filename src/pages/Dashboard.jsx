@@ -12,12 +12,21 @@ const Dashboard = () => {
   return (
     <Box sx={{ backgroundColor: '#1a2e1a', minHeight: '100vh' }}>
       <Navbar />
-      
-      <Box sx={{ p: 4 }}>
+
+      {/* Box que sí ocupa toda la pantalla sin restricciones */}
+      <Box
+        sx={{
+          width: '100vw',
+          px: 6,
+          py: 6,
+          backgroundColor: '#2d4a2d',
+          boxSizing: 'border-box',
+        }}
+      >
         <Typography variant="h4" sx={{ color: '#ffffff', fontWeight: 'bold', mb: 1 }}>
           Dashboard
         </Typography>
-        
+
         <Typography variant="body1" sx={{ color: '#a0a0a0', mb: 4 }}>
           Bienvenido de nuevo al club
         </Typography>
@@ -25,12 +34,13 @@ const Dashboard = () => {
         <Grid container spacing={3} sx={{ mb: 4 }}>
           {stats.map((stat, index) => (
             <Grid item xs={12} md={4} key={index}>
-              <Paper 
-                sx={{ 
+              <Paper
+                sx={{
                   backgroundColor: '#2d4a2d',
                   p: 3,
-                  borderRadius: 3
+                  borderRadius: 3,
                 }}
+                elevation={3}
               >
                 <Typography variant="h6" sx={{ color: '#a0a0a0', mb: 1 }}>
                   {stat.title}
@@ -49,8 +59,8 @@ const Dashboard = () => {
         <Typography variant="h5" sx={{ color: '#ffffff', fontWeight: 'bold', mb: 3 }}>
           Actividad Reciente
         </Typography>
-        
-        <Paper sx={{ backgroundColor: '#2d4a2d', p: 3, borderRadius: 3 }}>
+
+        <Paper sx={{ backgroundColor: '#2d4a2d', p: 3, borderRadius: 3 }} elevation={3}>
           <Typography sx={{ color: '#ffffff' }}>
             No hay actividad reciente para mostrar.
           </Typography>

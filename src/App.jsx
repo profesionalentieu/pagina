@@ -14,6 +14,9 @@ import Plans from './pages/Plans';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import NotFound from './pages/NotFound';
 
+// Nuevo componente para resumen de pago
+import PaymentSummary from './pages/PaymentSummary';
+
 const queryClient = new QueryClient();
 
 const theme = createTheme({
@@ -75,6 +78,14 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute>
             <Plans />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/payment-summary"
+        element={
+          <ProtectedRoute>
+            <PaymentSummary />
           </ProtectedRoute>
         }
       />

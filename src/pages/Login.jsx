@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Container, 
-  Paper, 
-  TextField, 
-  Button, 
-  Typography, 
+import {
+  Container,
+  Paper,
+  TextField,
+  Button,
+  Typography,
   Box,
   Alert
 } from '@mui/material';
@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (credentials.email && credentials.password) {
       const userData = {
         id: 1,
@@ -27,7 +27,7 @@ const Login = () => {
         email: credentials.email,
         role: credentials.email === 'admin@club.com' ? 'admin' : 'user'
       };
-      
+
       login(userData);
       navigate(userData.role === 'admin' ? '/admin' : '/dashboard');
     } else {
@@ -36,26 +36,29 @@ const Login = () => {
   };
 
   return (
-    <Container 
-      maxWidth={false} 
-      sx={{ 
-        height: '100vh', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        px: 4, 
-        backgroundColor: '#2d4a2d' // Fondo para toda la pantalla
+    <Container
+      maxWidth={false}
+      sx={{
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        px: 4,
+        backgroundColor: '#2d4a2d',
+        width: '100vw',
+        overflowX: 'hidden',
       }}
     >
-      <Paper 
-        elevation={3} 
-        sx={{ 
-          p: 6, 
-          width: '100%', 
-          maxWidth: '900px', // Ajustado para pantallas de 1920x1080
-          backgroundColor: '#2d4a2d', 
-          borderRadius: '12px', 
-          textAlign: 'center' 
+      <Paper
+        elevation={3}
+        sx={{
+          p: 6,
+          width: '100%',
+          maxWidth: '1200px',
+          backgroundColor: '#2d4a2d',
+          borderRadius: '12px',
+          textAlign: 'center',
+          boxSizing: 'border-box',
         }}
       >
         <Box sx={{ textAlign: 'center', mb: 4 }}>
@@ -68,7 +71,7 @@ const Login = () => {
         </Box>
 
         {error && (
-          <Alert severity="error" sx={{ mb: 3 }}>
+          <Alert severity="error" sx={{ mb: 3, maxWidth: 600, mx: 'auto' }}>
             {error}
           </Alert>
         )}
@@ -82,6 +85,8 @@ const Login = () => {
             onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
             margin="normal"
             sx={{
+              maxWidth: 600,
+              mx: 'auto',
               '& .MuiInputLabel-root': { color: '#a0a0a0' },
               '& .MuiOutlinedInput-root': {
                 '& fieldset': { borderColor: '#2e7d32' },
@@ -99,6 +104,8 @@ const Login = () => {
             onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
             margin="normal"
             sx={{
+              maxWidth: 600,
+              mx: 'auto',
               '& .MuiInputLabel-root': { color: '#a0a0a0' },
               '& .MuiOutlinedInput-root': {
                 '& fieldset': { borderColor: '#2e7d32' },
@@ -112,13 +119,20 @@ const Login = () => {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 4, mb: 3, backgroundColor: '#2e7d32', '&:hover': { backgroundColor: '#4caf50' } }}
+            sx={{
+              mt: 4,
+              mb: 3,
+              backgroundColor: '#2e7d32',
+              '&:hover': { backgroundColor: '#4caf50' },
+              maxWidth: 600,
+              mx: 'auto',
+            }}
           >
             Iniciar Sesión
           </Button>
         </form>
 
-        <Typography variant="body2" sx={{ textAlign: 'center', color: '#a0a0a0', mt: 3 }}>
+        <Typography variant="body2" sx={{ textAlign: 'center', color: '#a0a0a0', mt: 3, maxWidth: 600, mx: 'auto' }}>
           Demo: Usa cualquier email y contraseña
           <br />
           Admin: admin@club.com
